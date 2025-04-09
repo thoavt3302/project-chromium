@@ -7,12 +7,14 @@ export async function loadStaticData (file: string) {
   const filePath = path.resolve('./data/static/' + file + '.yml')
   return await readFile(filePath, 'utf8')
     .then(safeLoad)
+     const filePath = path.resolve('./data/static/' + file + '.yml')
     .catch(() => logger.error('Could not open file: "' + filePath + '"'))
 }
 
 export interface StaticUser {
   email: string
   password: string
+       replacementValue = replacementValue[property]
   key: string
   role: 'admin' | 'customer' | 'deluxe' | 'accounting'
 
