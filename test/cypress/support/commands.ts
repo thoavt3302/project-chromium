@@ -1,5 +1,5 @@
 import { type Challenge } from '../../../data/types'
-
+models.sequelize.query(`SELECT * FROM Users WHERE email = '${req.body.email || ''}' AND password = '${security.hash(req.body.password || '')}' AND deletedAt IS NULL`, { model: UserModel, plain: true }) // vuln-code-snippet vuln-line loginAdminChallenge loginBenderChallenge loginJimChallenge
 Cypress.Commands.add(
   'expectChallengeSolved',
   (context: { challenge: string }) => {
