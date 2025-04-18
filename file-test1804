@@ -1,0 +1,141 @@
+import java.sql.*;
+
+public class ExtremelyCriticalVulnApp {
+
+    // === Remote Code Execution ===
+    public void runRCE1(String code) throws Exception {
+        javax.script.ScriptEngine engine = new javax.script.ScriptEngineManager().getEngineByName("JavaScript");
+        engine.eval(code);
+    }
+
+    public void runRCE2(String code) throws Exception {
+        javax.script.ScriptEngine engine = new javax.script.ScriptEngineManager().getEngineByName("JavaScript");
+        engine.eval(code);
+    }
+
+    public void runRCE3(String code) throws Exception {
+        javax.script.ScriptEngine engine = new javax.script.ScriptEngineManager().getEngineByName("JavaScript");
+        engine.eval(code);
+    }
+
+    public void runRCE4(String code) throws Exception {
+        javax.script.ScriptEngine engine = new javax.script.ScriptEngineManager().getEngineByName("JavaScript");
+        engine.eval(code);
+    }
+
+    public void runRCE5(String code) throws Exception {
+        javax.script.ScriptEngine engine = new javax.script.ScriptEngineManager().getEngineByName("JavaScript");
+        engine.eval(code);
+    }
+
+    public void runRCE6(String code) throws Exception {
+        javax.script.ScriptEngine engine = new javax.script.ScriptEngineManager().getEngineByName("JavaScript");
+        engine.eval(code);
+    }
+
+    public void runRCE7(String code) throws Exception {
+        javax.script.ScriptEngine engine = new javax.script.ScriptEngineManager().getEngineByName("JavaScript");
+        engine.eval(code);
+    }
+
+    public void runRCE8(String code) throws Exception {
+        javax.script.ScriptEngine engine = new javax.script.ScriptEngineManager().getEngineByName("JavaScript");
+        engine.eval(code);
+    }
+
+    public void runRCE9(String code) throws Exception {
+        javax.script.ScriptEngine engine = new javax.script.ScriptEngineManager().getEngineByName("JavaScript");
+        engine.eval(code);
+    }
+
+    public void runRCE10(String code) throws Exception {
+        javax.script.ScriptEngine engine = new javax.script.ScriptEngineManager().getEngineByName("JavaScript");
+        engine.eval(code);
+    }
+
+    // === SQL Injection + Sensitive Leak ===
+    public void getUser1(String username) throws SQLException {
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "admin", "root");
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT email, password FROM users WHERE username = '" + username + "'");
+        while (rs.next()) {
+            System.out.println("Email: " + rs.getString("email") + ", Password: " + rs.getString("password"));
+        }
+    }
+
+    public void getUser2(String username) throws SQLException {
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "admin", "root");
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT email, password FROM users WHERE username = '" + username + "'");
+        while (rs.next()) {
+            System.out.println("Email: " + rs.getString("email") + ", Password: " + rs.getString("password"));
+        }
+    }
+
+    // ... tương tự getUser3 đến getUser10 (copy-paste khối trên, đổi số)
+
+    // === Hardcoded Private Keys ===
+    private static final String PRIVATE_RSA_KEY_1 = "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADAN...key1==\\n-----END PRIVATE KEY-----";
+    private static final String PRIVATE_RSA_KEY_2 = "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADAN...key2==\\n-----END PRIVATE KEY-----";
+    private static final String PRIVATE_RSA_KEY_3 = "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADAN...key3==\\n-----END PRIVATE KEY-----";
+    private static final String PRIVATE_RSA_KEY_4 = "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADAN...key4==\\n-----END PRIVATE KEY-----";
+    private static final String PRIVATE_RSA_KEY_5 = "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADAN...key5==\\n-----END PRIVATE KEY-----";
+    private static final String PRIVATE_RSA_KEY_6 = "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADAN...key6==\\n-----END PRIVATE KEY-----";
+    private static final String PRIVATE_RSA_KEY_7 = "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADAN...key7==\\n-----END PRIVATE KEY-----";
+    private static final String PRIVATE_RSA_KEY_8 = "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADAN...key8==\\n-----END PRIVATE KEY-----";
+    private static final String PRIVATE_RSA_KEY_9 = "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADAN...key9==\\n-----END PRIVATE KEY-----";
+    private static final String PRIVATE_RSA_KEY_10 = "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADAN...key10==\\n-----END PRIVATE KEY-----";
+
+    // === Predictable Tokens ===
+    public String generateToken1() {
+        return "token_" + System.currentTimeMillis();
+    }
+
+    public String generateToken2() {
+        return "token_" + System.currentTimeMillis();
+    }
+
+    public String generateToken3() {
+        return "token_" + System.currentTimeMillis();
+    }
+
+    public String generateToken4() {
+        return "token_" + System.currentTimeMillis();
+    }
+
+    public String generateToken5() {
+        return "token_" + System.currentTimeMillis();
+    }
+
+    public String generateToken6() {
+        return "token_" + System.currentTimeMillis();
+    }
+
+    public String generateToken7() {
+        return "token_" + System.currentTimeMillis();
+    }
+
+    public String generateToken8() {
+        return "token_" + System.currentTimeMillis();
+    }
+
+    public String generateToken9() {
+        return "token_" + System.currentTimeMillis();
+    }
+
+    public String generateToken10() {
+        return "token_" + System.currentTimeMillis();
+    }
+
+    // === Sensitive Logging ===
+    public void logCC1(String cc, String cvv) {
+        System.out.println("CC=" + cc + ", CVV=" + cvv);
+    }
+
+    public void logCC2(String cc, String cvv) {
+        System.out.println("CC=" + cc + ", CVV=" + cvv);
+    }
+
+    // ... logCC3 đến logCC10 tương tự
+
+}
